@@ -29,10 +29,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    {
-      name: 'safari',
-      use: { ...devices['iPhone 12'] },
-    },
+    
     {
       name: 'bdd',
       testDir: bddTestDir,

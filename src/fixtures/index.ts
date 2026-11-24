@@ -3,12 +3,16 @@ import { test as base } from 'playwright-bdd';
 import { ModalCookies } from "../components/ModalCookies/ModalCookies";
 import { HomePage } from "../pages/Home/home.page";
 import { LoginPage } from "../pages/Login/login.one.page"
-
+import { Footer } from "../components/Footer/Footer"
+import { MeasurementsPage } from '../pages/Measurements/measurements.page'; 
 
 type PageFixtures = {
     loginPage: LoginPage;
     homePage: HomePage;
     modalCookies: ModalCookies;
+    measurementsPage: MeasurementsPage; 
+    footer: Footer;
+   
     loginReady: LoginPage;
     logtime: void
 }
@@ -19,12 +23,18 @@ export const test = base.extend<PageFixtures>(
         loginPage: async({page}, use) => {
             await use(new LoginPage(page));
         },
-         homePage: async({page}, use) => {
+        homePage: async({page}, use) => {
             await use(new HomePage(page));
-        },
+        },        
         modalCookies: async({page}, use) => {
             await use(new ModalCookies(page));
         },
+        footer: async({page}, use) => {
+            await use(new Footer(page));
+        },
+        measurementsPage: async({page}, use) => {
+            await use(new MeasurementsPage(page));
+        },        
         loginReady: async({page,modalCookies, loginPage}, use) => {
             await page.goto('/login');
             await modalCookies.clickToAcceptModalCookies();

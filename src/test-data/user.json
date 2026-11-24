@@ -1,5 +1,11 @@
 {
     "defaultUser": {
         "email": "testuser@yopmail.com"
+    },
+    "defaultBody": {
+        "weight": "50",
+        "fatpercentage":"60",
+        "muscule":"70",
+        "waist":"80"
     }
 }
